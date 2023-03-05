@@ -54,10 +54,14 @@ The hexadecimal 4 binary bits perfection table
 
 This table should be read in conjunction with the binary table up to 8. The hexadecimal system thus gives a perfect permutation and combination of up to 4 binary digits.
 
-$16 = (1*8) + (1*4) + (1*2) + (1*1)$$
+$16 = (1*8) + (1*4) + (1*2) + (1*1)$
 
 Example of an IPv6 address to binary conversion
 
-Hexadecimal (32-bit) → 2001:0db8:cafe:0001:0000:0000:0000:0100
+#### Hexadecimal (32-bit)
 
-Binary (128-bit) → 0010000000000001:0000110110111000:1100101011111110:0000000000000001:0000000000000000:0000000000000000:0000000000000000:0000000100000000
+2001:0db8:cafe:0001:0000:0000:0000:0100
+
+#### Binary (128-bit)
+
+0010000000000001:0000110110111000:1100101011111110:0000000000000001:0000000000000000:0000000000000000:0000000000000000:0000000100000000
