@@ -6,6 +6,10 @@ I aim to make this as thorough as possible but I am one person. You are welcome 
 
 > These notes are created by me. If you find overlaps with other content elsewhere, kindly notify to get it changed or rephrased. For certain content, it is not possible to change. In this case, the credits will be mentioned.
 
+#### Note
+
+This wiki can, be no means, be complete ever. It can only evolve and get better and tighter. I DO NOT claim to have all the information available here as it is really difficult to do so. This is intended to get you started with DevOps and the world surrounding it's countless tools.
+
 ## Sections
 
 | Section         | Focus                               | Modules                                                      |
