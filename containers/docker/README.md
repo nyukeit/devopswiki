@@ -1,6 +1,6 @@
-# Basic Commands
+## Basic Commands
 
-## `pull`
+### `pull`
 
 Pull Docker images from Docker Hub
 
@@ -10,7 +10,7 @@ docker pull nginx # By default it pulls the latest image
 docker pull nginx:1.21 # Pull a specific version of the image
 ```
 
-## `run`
+### `run`
 
 Run a container from an image.
 
@@ -25,7 +25,7 @@ docker run -d -P <container id/name>
 docker run -d -p <yourport>:<mappedport> <container id/name> # Mapped port is the port of the host machine/VM/Server
 ```
 
-## `ps`
+### `ps`
 
 List of docker containers that are currently running
 
@@ -35,7 +35,7 @@ docker ps -a # shows all containers (running and exited)
 docker ps -s # shows containers with added sizes after modifications inside container
 ```
 
-## `image ls`
+### `image ls`
 
 List docker images currently downloaded on the local system
 
@@ -43,7 +43,7 @@ List docker images currently downloaded on the local system
 docker image ls
 ```
 
-## `start`
+### `start`
 
 Start docker containers using either their id or unique name
 
@@ -52,7 +52,7 @@ docker start <id>
 docker start <unique name>
 ```
 
-## `stop`
+### `stop`
 
 Stop docker containers
 
@@ -61,7 +61,7 @@ docker stop <id> # you need to only provide the first three or four unique chara
 docker stop <unique name>
 ```
 
-## `kill`
+### `kill`
 
 Forcefully quit a docker container (for eg. if it is unresponsive)
 
@@ -70,7 +70,7 @@ docker kill <id>
 docker kill <unique name>
 ```
 
-## `rm`
+### `rm`
 
 Remove docker containers. They need to be stopped to be removed.
 
@@ -80,7 +80,7 @@ docker rm <unique name>
 docker rm --force <id> # remove running containers
 ```
 
-## `logs`
+### `logs`
 
 Show logs for a particular container
 
@@ -88,7 +88,7 @@ Show logs for a particular container
 docker logs <container id>
 ```
 
-## `inspect`
+### `inspect`
 
 Get detailed data about a container
 
@@ -96,7 +96,7 @@ Get detailed data about a container
 docker inspect <container id>
 ```
 
-## `stats`
+### `stats`
 
 Shows detailed stats about running containers
 
@@ -104,7 +104,7 @@ Shows detailed stats about running containers
 docker stats
 ```
 
-## `exec`
+### `exec`
 
 Login to a container’s shell terminal
 
@@ -113,7 +113,7 @@ docker exec -it <container id/name> /bin/bash # Login to a container's bash shel
 dockdr exec <container id/name> ls -l # Display the file contents of the container inside your current terminal
 ```
 
-## `top`
+### `top`
 
 Check the process that is running inside a container
 
@@ -121,9 +121,9 @@ Check the process that is running inside a container
 docker top <container id>
 ```
 
-# Build Images
+## Build Images
 
-## Dockerfile
+### Dockerfile
 
 Build an image by writing a dockerfile.
 
@@ -163,7 +163,7 @@ EXPOSE 8080
 CMD ["$TOMCAT_HOME/bin/catalina.sh", "run"] # You cannot have more than one CMD in a Dockerfile as only the last CMD will be executed.
 ```
 
-## `commit`
+### `commit`
 
 Commit changes inside a container as a new image. It works like a `git commit`
 
@@ -198,7 +198,7 @@ docker run -d myubuntu:entry-cmd . # Runs the docker container with the settings
 docker run -d myubuntu:entry-cmd 900 . # Replaces the CMD argument with 900 but still runs the sleep command as entrypoint is immutable.
 ```
 
-## `USER`
+### `USER`
 
 The `USER` instruction will make the container use the specified user for any commands specified after the instruction.
 
@@ -215,7 +215,7 @@ docker run -d <containerid> # Creates the container
 docker exec -it <containerid> /bin/bash # Will login as the USER instead of ROOT
 ```
 
-## `WORKDIR`
+### `WORKDIR`
 
 Set the default working directory inside the container.
 
@@ -252,7 +252,7 @@ Once Docker is done with the Stage 1 steps, it discards that container and only 
 
 Usually, there are only two stages in a Dockerfile.
 
-## `tag`
+### `tag`
 
 Retag an image
 
@@ -261,27 +261,27 @@ docker tag sampleapp:v4 docker.io/nyukeit/dockertrial:sampleapp-v4
 #                                 account repository  imagename tag
 ```
 
-# Transfering an image from one server to another - Offline
+## Offline Image transfer
 
 When there is no access to online repositories or locally hosted repositories.
 
-## `save`
+### `save`
 
 ```docker
 # Generates a tarball with all the docker images included
 docker save --output myimages.tar <image1> <image2> <image3> 
 ```
 
-## `load`
+### `load`
 
 ```docker
 # Reloads images in another server
 docker load --input myimages.tar
 ```
 
-# Docker Cleanup
+## Docker Cleanup
 
-## `prune`
+### `prune`
 
 ```docker
 # Remove all stopped containers
@@ -294,7 +294,7 @@ docker image prune
 docker system prune
 ```
 
-# Docker Local Registry
+## Docker Local Registry
 
 A docker container as a Docker Registry which is totally private.
 
@@ -373,7 +373,7 @@ docker network connect mynet cont1
 docker network disconnect mynet cont1
 ```
 
-## None network
+### None network
 
 - Cannot be customized
 - Cannot create a custom none network
@@ -385,7 +385,7 @@ docker run -d --name <cont> --network none
 # When you do ifconfig on this container, it will only have the local loopback network 
 ```
 
-## Host network
+### Host network
 
 - Join a container to the host/vm network, outside of other container network.
 
@@ -395,7 +395,7 @@ docker run -d --name <cont> --network host
 # Thsi runs the container as a process on the vm network and is directly accessible using the VM ip.
 ```
 
-## Overlay Network
+### Overlay Network
 
 - Connect containers across VMs
 

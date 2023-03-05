@@ -1,7 +1,3 @@
-# Introduction
-
-Used to build, edit and version infrastructure as a code
-
 ## Key Features
 
 1. Infrastructure as a code
@@ -47,7 +43,7 @@ Used to build, edit and version infrastructure as a code
 
 4 Stages of the Terraform Lifecycle process
 
-### Init
+### `init`
 
 ```
 terraform init
@@ -55,7 +51,7 @@ terraform init
 
 - Initialise Terraform inside a folder
 
-### Plan
+### `plan`
 
 ```
 terraform plan
@@ -63,7 +59,7 @@ terraform plan
 
 - A Dry run stage. It is a preview of the changes before they are actually applied
 
-### Apply
+### `apply`
 
 ```
 terraform apply
@@ -71,7 +67,7 @@ terraform apply
 
 - Provisioning of actual resources and bringing the actual state to desired state
 
-### Destroy
+### `destroy`
 
 ```
 terraform destroy
@@ -100,8 +96,7 @@ terraform destroy
 
 ### Providers
 
-- Providers for specific technologies or platforms (Eg. [Amazon AWS](https://www.notion.so/Amazon-AWS-5a227ba9f41248d3843ef96144f8b277), [Microsoft Azure](https://www.notion.so/Microsoft-Azure-caf65e78f8f34a848cbfbf6d9a0ee11d), [Google Cloud](https://www.notion.so/Google-Cloud-67c8f8ba4e514b579cdce4a40f507cc7))
-- Can be used for initialisation
+- Providers for specific technologies or platforms (Eg. Amazon AWS, Microsoft Azure, Google Cloud)
 - Authentication with the infra provider will be handled by the provider plugin
 - Defines the resource maps
 

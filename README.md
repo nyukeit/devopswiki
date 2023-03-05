@@ -8,7 +8,7 @@ I aim to make this as thorough as possible but I am one person. You are welcome 
 
 #### Note
 
-This wiki can, be no means, be complete ever. It can only evolve and get better and tighter. I DO NOT claim to have all the information available here as it is really difficult to do so. This is intended to get you started with DevOps and the world surrounding it's countless tools.
+This wiki can, be no means, be complete ever. I am not trying to replace official documentation of any tool. It can only evolve and get better and tighter. I DO NOT claim to have all the information available here as it is really difficult to do so. This is intended to get you started with DevOps and the world surrounding it's countless tools.
 
 ## Sections
 
