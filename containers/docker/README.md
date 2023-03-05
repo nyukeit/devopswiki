@@ -314,3 +314,135 @@ docker push localhost:5000/nyukeit/myapp:1
 # Pull images
 docker pull localhost:5000/nyukeit/myapp:1
 ```
+
+## Docker Network
+
+Understand about docker’s networking
+
+```docker
+docker network ls
+
+# Ouput
+NETWORK ID     NAME      DRIVER    SCOPE
+9dd7f68dd225   bridge    bridge    local
+550b260adc35   host      host      local
+2440bbbbab37   none      null      local
+```
+
+### Inspect docker network
+
+```docker
+docker network inspect <network name/id>
+```
+
+### Create a Network
+
+- Custom bridge networks also enable container name resolution which means you could ping one container from another using the container name instead of ip address
+
+```docker
+# Docker used options
+docker network create <network name>
+
+# User defined settings
+docker network create <name> --driver bridge --subnet <subnet ip> gateway <gateway ip>
+```
+
+### Join a container to a custom network
+
+```docker
+docker run -d --name <cont> --network <networkname>
+docker run -d --name <cont2> --network <networkname>
+
+# These containers are now in a totally different network
+
+docker exec cont1 ping cont2
+# This should receive a response because name resolution is enabled in a custom network
+```
+
+### Join a container to a second network
+
+```docker
+# This makes cont1 a part of 2 different networks, the default bridge and the custom bridge mynet.
+docker network connect mynet cont1
+```
+
+### `disconnect`
+
+```docker
+# This disconnects a container from a network
+docker network disconnect mynet cont1
+```
+
+## None network
+
+- Cannot be customized
+- Cannot create a custom none network
+- It means switching off all networking for the container, it becomes unreachable
+
+```docker
+docker run -d --name <cont> --network none
+
+# When you do ifconfig on this container, it will only have the local loopback network 
+```
+
+## Host network
+
+- Join a container to the host/vm network, outside of other container network.
+
+```docker
+docker run -d --name <cont> --network host
+
+# Thsi runs the container as a process on the vm network and is directly accessible using the VM ip.
+```
+
+## Overlay Network
+
+- Connect containers across VMs
+
+## Docker Volumes
+
+- Attach external storage to a container
+- Makes data persistent
+- Docker managed volumes are in /var/lib/docker/volumes - this is accessible only by root.
+
+```docker
+# List volumes
+docker volume ls
+
+# Create an empty volume
+docker volume create <volumename>
+
+# Attach a volume to a container
+docker run -dP --mount type=volume,src=<volumename>,target=<pathinsidecontainer> <containername>:<tag>
+# src = volumename/path on host
+# target = path inside container
+# type=volume = docker managed volume i.e. present in /var/lib/docker/volumes/<volumename>/_data 
+
+Example
+docker run -dP --mount type=volume,src=applogs,target=/usr/local/tomcat/logs tomcat:latest
+
+# Another syntax
+docker run -dP --volume <src>:<target> <containername>:<tag>
+#Example
+docker run -dP --volume applogs:/usr/local/tomcat/logs tomcat:latest
+docker run -dP -v applogs:/usr/local/tomcat/logs tomcat:latest
+
+# Map another directory as a src volume to a container, also called a Bind Mount, user managed volume.
+mkdir /opt/nginxlogs
+docker run -dP --mount type=bind,src=<volumepath>,target=<pathinsidecontainer> <containername>:<tag>
+#Example
+docker run -DP --moutn type=bind,src=/opt/nginxlogs,target=/var/log/nginx nginx:latest
+
+# Mount multiple volumes
+Use more than one mount agruments to attach multiple volumes.
+docker run -dP --moutn type=bind,src=/opt/nginxlogs,target=/var/log/nginx --mount type=bind,src=/opt/nginxlogs,target=/var/log/nginx
+
+# Bind volume with another syntax
+docker run -dP -v <pathinsidevm>:<pathinsidecontainer> <containername>:<tag>
+#Example
+docker run -dP -v /opt/nginxlogs:/var/log/nginx nginx:latest
+```
+
+### `tmpfs`
+
+Storage managed by Docker in memory. This is not persistent storage. It is deleted when the container is removed.
