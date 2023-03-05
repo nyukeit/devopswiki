@@ -31,40 +31,40 @@ I aim to make this as thorough as possible but I am one person. You are welcome 
 
 #### Modules
 
-- [] OS
-  - [] Linux
-  - [] Windows
-  - [] Mac
+- [ ] OS
+  - [ ] Linux
+  - [ ] Windows
+  - [ ] Mac
 - [x] Networking
   - [x] Essentials
-- [] Programming
+- [ ] Programming
   - [x] Python
-  - [] Go
+  - [ ] Go
 
-- [] Version Control
-  - GitHub
-  - GitLab
-- [] Infrastructre as Code
+- [ ] Version Control
+  - [ ] GitHub
+  - [ ] GitLab
+- [x] Infrastructre as Code
   - [x] Terraform
   - [x] Ansible
-- [] Containers
+- [ ] Containers
   - [x] Docker
-  - [] Kubernetes
+  - [ ] Kubernetes
 
-- [] CI/CD
-  - [] Jenkins
-  - [] GitLab CI
-- [] Monitoring
-  - [] ELK
-  - [] Grafana
-  - [] Prometheus
+- [ ] CI/CD
+  - [ ] Jenkins
+  - [ ] GitLab CI
+- [ ] Monitoring
+  - [ ] ELK
+  - [ ] Grafana
+  - [ ] Prometheus
 
-- [] Cloud
-  - [] AWS
-  - [] Azure
-  - [] GCP
-- [] Skillcred
+- [ ] Cloud
+  - [ ] AWS
+  - [ ] Azure
+  - [ ] GCP
+- [ ] Skillcred
   - [x] YAML
   - [x] Bash
-  - [] Git
-  - [] Helm
+  - [ ] Git
+  - [ ] Helm
