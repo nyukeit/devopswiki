@@ -25,9 +25,11 @@ I aim to make this as thorough as possible but I am one person. You are welcome 
 
 #### Starting Out
 
-- [x] Add initial content
-- [x] Add License
-- [x] Add CONTRIBUTING
+:white_check_mark: Add initial content
+
+:white_check_mark: Add License
+
+:white_check_mark: Add CONTRIBUTING
 
 #### Modules
 
