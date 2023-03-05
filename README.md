@@ -1,4 +1,4 @@
-![GitHub](https://img.shields.io/github/license/nyukeit/devopswiki?style=for-the-badge)![GitHub commit activity](https://img.shields.io/github/commit-activity/w/nyukeit/devopswiki?style=for-the-badge)![GitHub repo size](https://img.shields.io/github/repo-size/nyukeit/devopswiki?color=yellow&style=for-the-badge)![GitHub last commit](https://img.shields.io/github/last-commit/nyukeit/devopswiki?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/nyukeit/devopswiki?style=for-the-badge) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/nyukeit/devopswiki?style=for-the-badge) ![GitHub repo size](https://img.shields.io/github/repo-size/nyukeit/devopswiki?color=yellow&style=for-the-badge) ![GitHub last commit](https://img.shields.io/github/last-commit/nyukeit/devopswiki?style=for-the-badge)
 
 # Welcome to DevOps Wiki
 
