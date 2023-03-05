@@ -12,18 +12,18 @@ This wiki can, be no means, be complete ever. I am not trying to replace officia
 
 ## Sections
 
-| Section         | Focus                               | Modules                                                      |
-| --------------- | ----------------------------------- | ------------------------------------------------------------ |
-| OS              | Learn basic OS commands             | Linux, Windows, Mac                                          |
-| Networking      | Basics of networking                | [Essentials](https://github.com/nyukeit/devopswiki/tree/main/networking) |
-| Programming     | Learn basic programming             | [Python](https://github.com/nyukeit/devopswiki/tree/main/programming/python), Go |
-| Version Control | Learn working with Remote Repos     | GitHub, GitLab                                               |
-| Infra-as-Code   | Provision & Maintain infrastructure | [Terraform](https://github.com/nyukeit/devopswiki/tree/main/infra-as-code/terraform), [Ansible](https://github.com/nyukeit/devopswiki/tree/main/infra-as-code/ansible) |
-| Containers      | Work with containers                | [Docker](https://github.com/nyukeit/devopswiki/tree/main/containers/docker), Kubernetes |
-| CI/CD           | The engine of DevOps                | Jenkins, GitLab CI                                           |
-| Monitoring      | Monitor your shit                   | ELK, Grafana, Prometheus                                     |
-| Cloud           | Working with cloud providers        | [AWS](https://github.com/nyukeit/devopswiki/tree/main/cloud/aws), Azure, GCP |
-| Skillcred       | Smaller but essentials skills       | [YAML](https://github.com/nyukeit/devopswiki/tree/main/skillcred/yaml), [Bash](https://github.com/nyukeit/devopswiki/tree/main/skillcred/bash), Git |
+| Section         | Focus                                   | Modules                                                      |
+| --------------- | --------------------------------------- | ------------------------------------------------------------ |
+| OS              | Learn basic OS commands                 | Linux, Windows, Mac                                          |
+| Networking      | Basics of networking                    | [Essentials](https://github.com/nyukeit/devopswiki/tree/main/networking) |
+| Programming     | Learn basic programming                 | [Python](https://github.com/nyukeit/devopswiki/tree/main/programming/python), Go |
+| Version Control | Learn working with Remote Repos         | GitHub, GitLab                                               |
+| Infra-as-Code   | Provision & Maintain infrastructure     | [Terraform](https://github.com/nyukeit/devopswiki/tree/main/infra-as-code/terraform), [Ansible](https://github.com/nyukeit/devopswiki/tree/main/infra-as-code/ansible) |
+| Containers      | Work with containers                    | [Docker](https://github.com/nyukeit/devopswiki/tree/main/containers/docker), Kubernetes |
+| CI/CD           | The engine of DevOps                    | Jenkins, GitLab CI                                           |
+| Monitoring      | Observability & monitoring of resources | ELK, Grafana, Prometheus                                     |
+| Cloud           | Working with cloud providers            | [AWS](https://github.com/nyukeit/devopswiki/tree/main/cloud/aws), Azure, GCP |
+| Skillcred       | Smaller but essentials skills           | [YAML](https://github.com/nyukeit/devopswiki/tree/main/skillcred/yaml), [Bash](https://github.com/nyukeit/devopswiki/tree/main/skillcred/bash), Git |
 
 ## To-Do List
 
@@ -35,42 +35,4 @@ This wiki can, be no means, be complete ever. I am not trying to replace officia
 
 :white_check_mark: Add CONTRIBUTING
 
-#### Modules
-
-- [ ] OS
-  - [ ] Linux
-  - [ ] Windows
-  - [ ] Mac
-- [x] Networking
-  - [x] Essentials
-- [ ] Programming
-  - [x] Python
-  - [ ] Go
-
-- [ ] Version Control
-  - [ ] GitHub
-  - [ ] GitLab
-- [x] Infrastructre as Code
-  - [x] Terraform
-  - [x] Ansible
-- [ ] Containers
-  - [x] Docker
-  - [ ] Kubernetes
-
-- [ ] CI/CD
-  - [ ] Jenkins
-  - [ ] GitLab CI
-- [ ] Monitoring
-  - [ ] ELK
-  - [ ] Grafana
-  - [ ] Prometheus
-
-- [ ] Cloud
-  - [ ] AWS
-  - [ ] Azure
-  - [ ] GCP
-- [ ] Skillcred
-  - [x] YAML
-  - [x] Bash
-  - [ ] Git
-  - [ ] Helm
+- [ ] Cross-linking inside articles

@@ -4,13 +4,19 @@ I welcome any contributions you wish to make to this wiki, including translation
 
 ## How to Contribute
 
-If you are contributing for the first time, here is a great resource to get you started.
+If you are contributing for the first time, here is what to do:
 
-[How to Contribute on GitHub](https://www.dataschool.io/how-to-contribute-on-github/)
+1. Fork the repo
+2. Create your branch from `main`
+3. ONE addition/change per pull request
+4. Include a short description of your modification.
+5. Issue a pull request
+
+> This repository is covered under an MIT license. This means any submissions you make are also covered under the same license. By contributing, you have agreed to be covered under the MIT license for your contributions.
 
 ### Raise an Issue
 
-You can alternatively [Raise an Issue](https://github.com/nyukeit/devopswiki/issues/new/choose) if you do not wish to fork and contribute directly.
+You can alternatively [Raise an Issue](https://github.com/nyukeit/devopswiki/issues/new/choose) if it is not a very major addition to the documentation.
 
 #### Tag Your Issues Correctly
 
@@ -30,4 +36,4 @@ git comit # Example of code error
 
 Something mentioned is factually incorrect that may lead to misunderstanding. You can also include missing facts.
 
-> If you feel there should be additional labels for correct tagging, please let me know via discussions.
+> If you feel there should be additional labels for correct tagging, please reach out.
