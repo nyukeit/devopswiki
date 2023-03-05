@@ -162,16 +162,16 @@ terraform destroy
       # Example of Remote-exec
       locals {
         ami_id = "ami-08fdec01f5df9998f"
-        vpc_id = "vpc-01308583caf322b3a"
+        vpc_id = "your-vpc-id"
         ssh_user = "ubuntu"
         key_name = "Demokey"
         private_key_path = "/home/labsuser/remoteexec/Demokey.pem"
       }
       
       provider "aws" {
-        access_key = "ASIAXPK2B6OQM7TNP65Z"
-        secret_key = "AOfGg4jiRGpCTF78lQyevpS4JQELwdErN4Ah1796"
-        token = "FwoGZXIvYXdzEPf//////////wEaDB3f6Mof93lve9eQoiK0AbHKDkym6K88+GFnKz2QHwdrs784q/brXr/LuvLzi8IpQywW+uo/4Cbp5F1/pjZZV5x/ojpFeKeHFTFTsLovKZUEb0N4UNGXScdvf43cO3WupPKulQntkCVZmRTgubInAo+V4RAHMBvx96H0Yha46cxycbwlW/pVgqbZ489mJK1UBRvs5Ms41unrhguyOw4lnSoZ9ofAK65JcsOH0/85ShASCV0z7WmXfdCgc1gCfC1Rz0FDqyjzv9SeBjIt1M25dInIbwQ9gt+FYzIZKXt60mM+09hMs8lrqkEApoQ/RP6jD5zO2DgtmgOS"
+        access_key = "your-access-key"
+        secret_key = "your-secret-key"
+        token = "your-token"
         region = "us-east-1"
       }
       
