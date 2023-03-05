@@ -1,5 +1,7 @@
 # Basic Commands
 
+Credit: [Bash for Beginners](https://www.youtube.com/watch?v=nrfwcbYJZfc) videos by Microsoft.
+
 ## Navigating inside files
 
 ```bash

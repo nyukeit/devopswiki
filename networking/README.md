@@ -61,7 +61,7 @@ This table should be read in conjunction with the binary table up to 8. The hexa
 16 = (1*8) + (1*4) + (1*2) + (1*1)
 ```
 
-Example of an IPv6 address to binary conversion
+### Example of an IPv6 address to binary conversion
 
 #### Hexadecimal (32-bit)
 

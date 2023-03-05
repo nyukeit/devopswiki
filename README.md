@@ -1,6 +1,10 @@
+![GitHub](https://img.shields.io/github/license/nyukeit/devopswiki?style=for-the-badge)![GitHub commit activity](https://img.shields.io/github/commit-activity/w/nyukeit/devopswiki?style=for-the-badge)![GitHub repo size](https://img.shields.io/github/repo-size/nyukeit/devopswiki?color=yellow&style=for-the-badge)![GitHub last commit](https://img.shields.io/github/last-commit/nyukeit/devopswiki?style=for-the-badge)
+
 # Welcome to DevOps Wiki
 
 I aim to make this as thorough as possible but I am one person. You are welcome to contribute to this wiki with your knowledge. The end goal is to make this a starting point for those starting out in DevOps and/or the tools involved individually.
+
+> These notes are created by me. If you find overlaps with other content elsewhere, kindly notify to get it changed or rephrased. For certain content, it is not possible to change. In this case, the credits will be mentioned.
 
 ## Sections
 
