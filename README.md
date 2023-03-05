@@ -21,3 +21,50 @@ I aim to make this as thorough as possible but I am one person. You are welcome 
 | Cloud           | Working with cloud providers        | AWS, Azure, GCP                                              |
 | Skillcred       | Smaller but essentials skills       | [YAML](https://github.com/nyukeit/devopswiki/tree/main/skillcred/yaml), [Bash](https://github.com/nyukeit/devopswiki/tree/main/skillcred/bash), Git |
 
+## To-Do List
+
+#### Starting Out
+
+- [x] Add initial content
+- [x] Add License
+- [x] Add CONTRIBUTING
+
+#### Modules
+
+- [] OS
+  - [] Linux
+  - [] Windows
+  - [] Mac
+- [x] Networking
+  - [x] Essentials
+- [] Programming
+  - [x] Python
+  - [] Go
+
+- [] Version Control
+  - GitHub
+  - GitLab
+- [] Infrastructre as Code
+  - [x] Terraform
+  - [x] Ansible
+- [] Containers
+  - [x] Docker
+  - [] Kubernetes
+
+- [] CI/CD
+  - [] Jenkins
+  - [] GitLab CI
+- [] Monitoring
+  - [] ELK
+  - [] Grafana
+  - [] Prometheus
+
+- [] Cloud
+  - [] AWS
+  - [] Azure
+  - [] GCP
+- [] Skillcred
+  - [x] YAML
+  - [x] Bash
+  - [] Git
+  - [] Helm
