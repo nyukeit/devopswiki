@@ -22,7 +22,7 @@ This wiki can, be no means, be complete ever. It can only evolve and get better 
 | Containers      | Work with containers                | [Docker](https://github.com/nyukeit/devopswiki/tree/main/containers/docker), Kubernetes |
 | CI/CD           | The engine of DevOps                | Jenkins, GitLab CI                                           |
 | Monitoring      | Monitor your shit                   | ELK, Grafana, Prometheus                                     |
-| Cloud           | Working with cloud providers        | AWS, Azure, GCP                                              |
+| Cloud           | Working with cloud providers        | [AWS](https://github.com/nyukeit/devopswiki/tree/main/cloud/aws), Azure, GCP |
 | Skillcred       | Smaller but essentials skills       | [YAML](https://github.com/nyukeit/devopswiki/tree/main/skillcred/yaml), [Bash](https://github.com/nyukeit/devopswiki/tree/main/skillcred/bash), Git |
 
 ## To-Do List
