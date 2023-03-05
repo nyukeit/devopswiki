@@ -20,9 +20,12 @@ An example of a decimal to binary conversion can be converting this IPv4 address
 | 1 1 0 0 0 0 0 0 | 1 0 1 0 1 0 0 0 | 0 0 0 0 0 0 0 1 | 0 0 0 0 0 0 0 1 |
 
 Mathematically, it is just as simple as adding all possible values to arrive at the decimal.
-$$
+
+```math
 192 = (128*1) + (64*1) + (32*0) + (16*0) + (8*0) + (4*0) + (2*0) + (1*0)
-$$
+```
+
+
 
 |      | 128  | 64   | 32   | 16   | 8    | 4    | 2    | 1    |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -54,7 +57,9 @@ The hexadecimal 4 binary bits perfection table
 
 This table should be read in conjunction with the binary table up to 8. The hexadecimal system thus gives a perfect permutation and combination of up to 4 binary digits.
 
-$16 = (1*8) + (1*4) + (1*2) + (1*1)$
+```math
+16 = (1*8) + (1*4) + (1*2) + (1*1)
+```
 
 Example of an IPv6 address to binary conversion
 
