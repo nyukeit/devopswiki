@@ -31,7 +31,7 @@ git init
 Working with Git is essentially working with commit branches. They help keep code clean and disasters away.
 
 ```bash
-git branch -M main #Creates a branch called 'main'
+git branch main #Creates a branch called 'main'
 ```
 
 > We have moved away from using 'master' as a branch name since it is biased nomenclature. You can use it if you want, but we will all judge you.
