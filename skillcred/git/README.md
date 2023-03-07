@@ -73,7 +73,15 @@ git commit -m "Your commit message here"
 Clone a remote repository (eg. hosted on GitHub) into a local working directory. This will also create a folder with the same name as the repository.
 
 ```bash
-git clone <https://example.com/user/repo.git
+git clone https://example.com/user/repo.git
 ```
 
-### 
+~ still developing ~
+
+## Resources
+
+[Hands-On Git](https://learngitbranching.js.org)
+
+[Atlassian Git Tutorials - Become a Git Guru](https://www.atlassian.com/git/tutorials)
+
+[Git Certification](https://training.linuxfoundation.org/certification/git/#:~:text=The Git SkillCred demonstrates a user’s ability to,update%2C merge%2C and rebase content within the repositories.)
