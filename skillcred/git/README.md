@@ -84,4 +84,4 @@ git clone https://example.com/user/repo.git
 
 [Atlassian Git Tutorials - Become a Git Guru](https://www.atlassian.com/git/tutorials)
 
-[Git Certification](https://training.linuxfoundation.org/certification/git/#:~:text=The Git SkillCred demonstrates a user’s ability to,update%2C merge%2C and rebase content within the repositories.)
+[Git Certification](https://training.linuxfoundation.org/certification/git/)
