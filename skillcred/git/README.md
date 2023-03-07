@@ -1,6 +1,6 @@
-## Basic Commands
+## Working with Local repositories
 
-### Configure
+### `config`
 
 Configure the local git client with variables.
 
@@ -18,7 +18,7 @@ View your custom configuration
 git config --list
 ```
 
-### Initialize
+### `init`
 
 Initialize an empty repository in a directory. This does not make Git start tracking your files.
 
@@ -26,32 +26,21 @@ Initialize an empty repository in a directory. This does not make Git start trac
 git init
 ```
 
-### Branching
+### `branch`
 
 Working with Git is essentially working with commit branches. They help keep code clean and disasters away.
 
 ```bash
-git branch main #Creates a branch called 'main'
+git branch feature #Creates a branch called 'feature'
 ```
 
-> We have moved away from using 'master' as a branch name since it is biased nomenclature. You can use it if you want, but we will all judge you.
-
 ```bash
-# View all branches in the repo
-git branch
+git branch # View all branches in the repo
 ```
 
 > The little start next to the branch name means the HEAD is pointing to that branch as of the current commit.
 
-### Clone
-
-Clone a remote repository (eg. hosted on GitHub) into a local working directory. This will also create a folder with the same name as the repository.
-
-```bash
-git clone <https://example.com/user/repo.git
-```
-
-### Track Files
+### `add`
 
 When initializing a new repository, you need to specify the files that Git should track.
 
@@ -61,7 +50,7 @@ git add . # Track all files in the current folder
 git add -a # Same as above
 ```
 
-### Check Status of Local Repository
+### `status`
 
 This shows you the current status of your local repository and if there modifications or not.
 
@@ -69,7 +58,7 @@ This shows you the current status of your local repository and if there modifica
 git status
 ```
 
-### Commit Changes
+### `commit`
 
 This is essentially like saving a file. Once the files are committed, they are ready to be pushed. Commits are done with a message and summary that highlights the modifications made.
 
@@ -77,4 +66,14 @@ This is essentially like saving a file. Once the files are committed, they are r
 git commit -m "Your commit message here"
 ```
 
--still-developing-
+## Working with Remote Repositories
+
+### `clone`
+
+Clone a remote repository (eg. hosted on GitHub) into a local working directory. This will also create a folder with the same name as the repository.
+
+```bash
+git clone <https://example.com/user/repo.git
+```
+
+### 
