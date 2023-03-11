@@ -15,10 +15,10 @@ I find this to be the easiest method to carry notes around instead of using bulk
 | OS              | Learn basic OS commands                 | Linux, Windows, Mac                                          |
 | Networking      | Basics of networking                    | [Essentials](https://github.com/nyukeit/devopswiki/tree/main/networking) |
 | Programming     | Learn basic programming                 | [Python](https://github.com/nyukeit/devopswiki/tree/main/programming/python), Go |
-| Version Control | Learn working with Remote Repos         | GitHub                                                       |
+| Version Control | Learn working with Remote Repos         | [Git](https://github.com/nyukeit/devopswiki/tree/main/skillcred/git), GitHub |
 | Infra-as-Code   | Provision & Maintain infrastructure     | [Terraform](https://github.com/nyukeit/devopswiki/tree/main/infra-as-code/terraform), [Ansible](https://github.com/nyukeit/devopswiki/tree/main/infra-as-code/ansible) |
 | Containers      | Work with containers                    | [Docker](https://github.com/nyukeit/devopswiki/tree/main/containers/docker), Kubernetes |
 | CI/CD           | The engine of DevOps                    | Jenkins, GitLab CI                                           |
 | Monitoring      | Observability & monitoring of resources | ELK, Grafana, Prometheus                                     |
 | Cloud           | Working with cloud providers            | [AWS](https://github.com/nyukeit/devopswiki/tree/main/cloud/aws), Azure, GCP |
-| Skillcred       | Smaller but essentials skills           | [YAML](https://github.com/nyukeit/devopswiki/tree/main/skillcred/yaml), [Bash](https://github.com/nyukeit/devopswiki/tree/main/skillcred/bash), [Git](https://github.com/nyukeit/devopswiki/tree/main/skillcred/git) |
+| Skillcred       | Smaller but essentials skills           | [YAML](https://github.com/nyukeit/devopswiki/tree/main/skillcred/yaml), [Bash](https://github.com/nyukeit/devopswiki/tree/main/skillcred/bash) |
