@@ -118,6 +118,8 @@ Show logs for a particular container
 
 ```bash
 docker logs <container id>
+
+docker logs -f # Live follow logs
 ```
 
 ### Inspect
@@ -710,20 +712,46 @@ Docker's built-in container orchestration tool.
 docker swarm init
 ```
 
+### Join Swarm
+
 ```bash
 # Run on worker nodes to join the swarm
-docker swarm join --token 
+docker swarm join --token <token> 
 ```
 
 ```bash
-# Regenerate the swarm join token
-docker swarm join worker
+# Regenerate the swarm join token for worker
+docker swarm join-token worker
 ```
+
+```bash
+# Regenerate the swarm join token for manager
+docker swarm join-token manager
+```
+
+#### Multi-Manager Swarm
+
+- Multiple managers can join a swarm as manager
+- One manager remains active, the remaining are passive
+- Passive manager replaces active manager if it becomes passive
 
 ### List Nodes
 
 ```bash
 docker node ls
+```
+
+### Inspect Nodes
+
+```bash
+docker node inspect <nodename>
+```
+
+### Update Node Configuration
+
+```bash
+# Eg. here we add a label to a node, here 'role' is a key and 'app' is the value
+docker node update <nodename/id> -- label-add role=app
 ```
 
 ### Leave Swarm
@@ -732,21 +760,191 @@ docker node ls
 docker swarm leave --force
 ```
 
+### Create Service
+
+#### Replicated Mode
+
+- Is the default mode for 
+- Allows to create as many replicas as needed
+- Run more than one container on any worker node in the cluster
+- Scale up/scale down
+- Can be used for front facing applications
+
+```bash
+# --mode replicated in effect
+docker service create --name myapp --replicas 7 -p 9080:3000 id/repo:image-tag
+```
+
+#### Global Mode
+
+- Creates number of replicas === number of nodes
+- This creates only and only one container per node
+- Is not scalable using docker service scale
+- Automatically scales up or down if nodes are added or removed
+- Can be used for applications like monitoring agents, anti-virus or logging agents (since there is barely a need for running multiple of these applications)
+
+```bash
+# Automatically creates same number of containers as nodes present in the Swarm
+
+docker service create --name myapp --mode global -p 9080:3000 id/repo:image-tag
+```
+
+### List Services
+
+```bash
+docker service ls
+```
+
+### List Containers with Services
+
+```bash
+docker service ps <service name>
+```
+
+### Scaling
+
+```bash
+# Add more containers, there were 7 it will now add 5 more. It works for scaling down too.
+
+docker service scale <servicename>=12
+```
+
+### Service Logs
+
+```bash
+docker service logs <servicename>
+```
+
+### Remove Services
+
+```bash
+docker service rm <servicename>
+```
+
+### Rolling Update
+
+Continuously delivered updates instead of point release updates. Like Ubuntu 22.04 is a versioned point release update.
+
+```bash
+# To see all parameters
+docker service update --help
+```
+
+```bash
+# Rolling update
+# Update parallelism 2 -> update 2 containers at a time (default is 1 if not set)
+# Update delay 30s -> wait 30s between updates
+# Update failure action rollback -> rollback any changes if update failed
+# Update order start-first -> begins from the first container
+# Not all parameters are mandatory
+
+docker service update <servicename> --image id/repo:image-tag --update-parallelism 2 --update-delay 30s --update-failure-action rollback --update-order start-first
+```
+
+### Rollback Updates
+
+```bash
+docker service rollback
+```
+
+### Using Declarative YAML
+
+Create a yaml file
+
+```yaml
+volumes:
+  data:
+  data-bkp:
+networks:
+  myoverlay:
+services:
+  springbootapp:
+    image: lerndevops/samples:springboot-app
+    deploy:
+      replicas: 2
+      placement:
+        constraints:
+          - node.labels.role==app
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: 512M
+    ports:
+      - "9090:8080"
+    depends_on:
+      - mongo
+    networks:
+      - myoverlay
+  mongo:
+    image: lerndevops/samples:mongodb
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.role==db
+      restart_policy:
+        condition: on-failure
+    ports: 
+      - "27017:27017"
+    volumes:
+      - data:/data/db
+      - data-bkp:/data/bkp
+    networks:
+      - myoverlay
+```
+
+### Deploy Stack
+
+```bash
+docker stack deploy -c <file.yaml> <stackname>
+```
+
+### List Stacks
+
+```bash
+docker stack ls
+```
+
+### List Containers in Stack
+
+```bash
+docker stack ps <stackname>
+```
+
+### List Services in Stack
+
+```bash
+docker stack services <stackname>
+```
+
+### Remove Stack
+
+```bash
+docker stack rm <stackname>
+```
+
+### List Services in a Service Stack
+
+```bash
+docker service ps <stackname>_<servicename>
+```
+
+## Docker EE
+
+Is provided by an organisation called Mirantis.
+
+### Universal Control Plane
+
+- Comes with a GUI
+- Called the Universal Control Plane (also called Mirantis Kubernetes Engine)
+- This is the manager node
+
+### Docker Trusted Registry
+
+- Worker node
+- Also called Mirantis Secure Registry
+- It is like a private version of Docker Hub
+
 ## Resources
-
-<details>
-    <summary>docker pull</summary>
-    ### Heading
-		1. Foo
-  		2. Bar
-     		* Baz
-     		* Qux
-
-  ### Some Code
-  ```js
-  function logSomething(something) {
-    console.log('Something', something);
-  }
-  ```
-</details>
-
