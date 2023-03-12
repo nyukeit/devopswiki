@@ -1,3 +1,7 @@
+## Content
+
+[TOC]
+
 ## Basic Commands
 
 ### `pull`
@@ -701,4 +705,20 @@ docker swarm leave --force
 ```
 
 ## Resources
+
+<details>
+    <summary>docker pull</summary>
+    ### Heading
+		1. Foo
+  		2. Bar
+     		* Baz
+     		* Qux
+
+  ### Some Code
+  ```js
+  function logSomething(something) {
+    console.log('Something', something);
+  }
+  ```
+</details>
 
