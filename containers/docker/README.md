@@ -684,8 +684,6 @@ docker swarm init
 docker swarm join --token 
 ```
 
-docker swarm join --token SWMTKN-1-45uvmlvdsvrjmx2myafuvfuxbzqg16u8y9cy4swrydcpcxlpz2-38n71x4ezuhe91lzhr5r75u98 172.31.14.111:2377
-
 ```bash
 # Regenerate the swarm join token
 docker swarm join worker

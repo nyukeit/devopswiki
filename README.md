@@ -19,6 +19,12 @@
 
 ## Disclaimer
 
-These are my personal notes that I create while learning DevOps. These are NOT intended for use in production environments. The notes may or may not be updated for the latest changes in various DevOps tools. They are only intended to be correct at the time of writing, even though I try hard to keep them current as far as possible.
+These are my personal notes that I create while learning DevOps. The notes may or may not be updated for the latest changes in various DevOps tools. They are only intended to be correct at the time of writing, even though I try hard to keep them current as far as possible.
 
-I find this to be the easiest method to carry notes around instead of using bulky note taking tools. If you find value out of these and wish to contribute in any manner, do read the CONTRIBUTING. I welcome any and all types of contributions.
+I find this to be the easiest method to carry notes around instead of using bulky note taking tools.
+
+## Contributing
+
+It is possible that there might be errors or best-practices not followed. Feel free to point them out using Issues or contacting me.
+
+If you find value out of these and wish to contribute in any manner, do read the CONTRIBUTING. I welcome any and all types of contributions.
