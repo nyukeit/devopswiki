@@ -24,7 +24,7 @@
 
 #### Registries
 
-[Docker Hub](#Docker Hub) | [Local Registry](#Local Registry)
+[Docker Hub](#Docker-Hub) | [Local Registry](#Local-Registry)
 
 #### Docker Network (`docker network`)
 
@@ -284,7 +284,7 @@ Once Docker is done with the Stage 1 steps, it discards that container and only 
 
 Usually, there are only two stages in a Dockerfile.
 
-### `tag`
+### Tag
 
 Retag an image
 
@@ -297,14 +297,14 @@ docker tag sampleapp:v4 docker.io/nyukeit/dockertrial:sampleapp-v4
 
 When there is no access to online repositories or locally hosted repositories.
 
-### `save`
+### Save
 
 ```docker
 # Generates a tarball with all the docker images included
 docker save --output myimages.tar <image1> <image2> <image3> 
 ```
 
-### `load`
+### Load
 
 ```docker
 # Reloads images in another server
@@ -313,7 +313,7 @@ docker load --input myimages.tar
 
 ## Docker Cleanup
 
-### `prune`
+### Prune
 
 ```docker
 # Remove all stopped containers
