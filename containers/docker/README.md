@@ -2,13 +2,13 @@
 
 #### Basic Commands
 
-[`pull`](#Pull) | [`run`](#Run) | [`ls`](#List) | [`image ls`](#List Images) | [`start`](#Start) | [`stop`](#Stop) | [`kill`](#Kill) | [`rm`](#Remove) | [`logs`](#Logs) | [`inspect`](#Inspect) | [`stats`](#Stats) | [`exec`](#Exec) | [`top`](#Top) | 
+[`pull`](#Pull) | [`run`](#Run) | [`ls`](#List) | [`image ls`](#List-Images) | [`start`](#Start) | [`stop`](#Stop) | [`kill`](#Kill) | [`rm`](#Remove) | [`logs`](#Logs) | [`inspect`](#Inspect) | [`stats`](#Stats) | [`exec`](#Exec) | [`top`](#Top) | 
 
 #### Building Images
 
 ##### Dockerfile
 
-[`build`](#Build) | [ENTRYPOINT vs CMD](#ENTRYPOINT vs CMD) | [USER](#USER) | [WORKDIR](#WORKDIR) | [Multi-Stage Build](#Multi-Stage Build)
+[`build`](#Build) | [ENTRYPOINT vs CMD](#ENTRYPOINT-vs-CMD) | [USER](#USER) | [WORKDIR](#WORKDIR) | [Multi-Stage Build](#Multi-Stage-Build)
 
 ##### From Containers
 
