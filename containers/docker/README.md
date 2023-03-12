@@ -1,10 +1,38 @@
 ## Content
 
-[TOC]
+#### Basic Commands
+
+[`pull`](#Pull) | [`run`](#Run) | [`ls`](#List) | [`image ls`](#List Images) | [`start`](#Start) | [`stop`](#Stop) | [`kill`](#Kill) | [`rm`](#Remove) | [`logs`](#Logs) | [`inspect`](#Inspect) | [`stats`](#Stats) | [`exec`](#Exec) | [`top`](#Top) | 
+
+#### Building Images
+
+##### Dockerfile
+
+[`build`](#Build) | [ENTRYPOINT vs CMD](#ENTRYPOINT vs CMD) | [USER](#USER) | [WORKDIR](#WORKDIR) | [Multi-Stage Build](#Multi-Stage Build)
+
+##### From Containers
+
+[`commit`](#Commit)
+
+#### Offline Image Transfer
+
+[`tag`](#Tag) | [`save`](#Save) | [`load`](#Load)
+
+#### Cleanup
+
+[`container prune`](#Prune) | [`image prune`](#Prune) | [`system prune`](#Prune)
+
+#### Registries
+
+[Docker Hub](#Docker Hub) | [Local Registry](#Local Registry)
+
+#### Docker Network (`docker network`)
+
+[`ls`](#Network List) | [`create`](#Create Network) | [`connect`](#Join Network) | 
 
 ## Basic Commands
 
-### `pull`
+### Pull
 
 Pull Docker images from Docker Hub
 
@@ -14,7 +42,7 @@ docker pull nginx # By default it pulls the latest image
 docker pull nginx:1.21 # Pull a specific version of the image
 ```
 
-### `run`
+### Run
 
 Run a container from an image.
 
@@ -29,7 +57,7 @@ docker run -d -P <container id/name>
 docker run -d -p <yourport>:<mappedport> <container id/name> # Mapped port is the port of the host machine/VM/Server
 ```
 
-### `ps`
+### List
 
 List of docker containers that are currently running
 
@@ -39,7 +67,7 @@ docker ps -a # shows all containers (running and exited)
 docker ps -s # shows containers with added sizes after modifications inside container
 ```
 
-### `image ls`
+### List Images
 
 List docker images currently downloaded on the local system
 
@@ -47,7 +75,7 @@ List docker images currently downloaded on the local system
 docker image ls
 ```
 
-### `start`
+### Start
 
 Start docker containers using either their id or unique name
 
@@ -56,7 +84,7 @@ docker start <id>
 docker start <unique name>
 ```
 
-### `stop`
+### Stop
 
 Stop docker containers
 
@@ -65,7 +93,7 @@ docker stop <id> # you need to only provide the first three or four unique chara
 docker stop <unique name>
 ```
 
-### `kill`
+### Kill
 
 Forcefully quit a docker container (for eg. if it is unresponsive)
 
@@ -74,7 +102,7 @@ docker kill <id>
 docker kill <unique name>
 ```
 
-### `rm`
+### Remove
 
 Remove docker containers. They need to be stopped to be removed.
 
@@ -84,7 +112,7 @@ docker rm <unique name>
 docker rm --force <id> # remove running containers
 ```
 
-### `logs`
+### Logs
 
 Show logs for a particular container
 
@@ -92,7 +120,7 @@ Show logs for a particular container
 docker logs <container id>
 ```
 
-### `inspect`
+### Inspect
 
 Get detailed data about a container
 
@@ -100,7 +128,7 @@ Get detailed data about a container
 docker inspect <container id>
 ```
 
-### `stats`
+### Stats
 
 Shows detailed stats about running containers
 
@@ -108,7 +136,7 @@ Shows detailed stats about running containers
 docker stats
 ```
 
-### `exec`
+### Exec
 
 Login to a container’s shell terminal
 
@@ -117,9 +145,9 @@ docker exec -it <container id/name> /bin/bash # Login to a container's bash shel
 dockdr exec <container id/name> ls -l # Display the file contents of the container inside your current terminal
 ```
 
-### `top`
+### Top
 
-Check the process that is running inside a container
+Check the processes running inside a container
 
 ```bash
 docker top <container id>
@@ -169,7 +197,7 @@ CMD ["$TOMCAT_HOME/bin/catalina.sh", "run"] # You cannot have more than one CMD 
 
 ### `commit`
 
-Commit changes inside a container as a new image. It works like a `git commit`
+Commit changes inside a container as a new image.
 
 ```bash
 docker commit -m "<msg>" <newimagename>:<tag>
@@ -339,7 +367,7 @@ NETWORK ID     NAME      DRIVER    SCOPE
 docker network inspect <network name/id>
 ```
 
-### Create a Network
+### Create Network
 
 - Custom bridge networks also enable container name resolution which means you could ping one container from another using the container name instead of ip address
 
@@ -351,7 +379,7 @@ docker network create <network name>
 docker network create <name> --driver bridge --subnet <subnet ip> gateway <gateway ip>
 ```
 
-### Join a container to a custom network
+### Join Network
 
 ```docker
 docker run -d --name <cont> --network <networkname>
@@ -363,14 +391,14 @@ docker exec cont1 ping cont2
 # This should receive a response because name resolution is enabled in a custom network
 ```
 
-### Join a container to a second network
+### Connect Second Network
 
 ```docker
 # This makes cont1 a part of 2 different networks, the default bridge and the custom bridge mynet.
 docker network connect mynet cont1
 ```
 
-### `disconnect`
+### Disconnect Network
 
 ```docker
 # This disconnects a container from a network
@@ -401,7 +429,7 @@ docker run -d --name <cont> --network host
 
 ### Overlay Network
 
-- Connect containers across VMs
+- Connect containers across hosts
 
 ## Docker Volumes
 
