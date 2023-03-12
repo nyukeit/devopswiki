@@ -18,12 +18,6 @@ With EC2 instances, the user has to manage the infrastructure of the instances, 
 - Users can focus on applications rather than provisioning and maintaining
 - Flexibility to auto scale serverless applications
 
-- 
-
-- 
-
-### AWS Elastic Kubernetes Service (EKS)
-
 
 
 ## Provisioning Resources on AWS

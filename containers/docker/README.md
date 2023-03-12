@@ -446,3 +446,260 @@ docker run -dP -v /opt/nginxlogs:/var/log/nginx nginx:latest
 ### `tmpfs`
 
 Storage managed by Docker in memory. This is not persistent storage. It is deleted when the container is removed.
+
+## Docker Daemon
+
+The Docker service or more aptly, the Docker Engine, is called the Docker Daemon. 
+
+- Docker Daemon is not connected to any network by default, but this can be enabled using the Remote API.
+
+### Enable Docker Daemon Remote API
+
+#### For Ubuntu 16.04 / 18.04 LTS
+
+```bash
+sudo vi /lib/systemd/system/docker.service
+```
+
+Add this line in the Dockerfile
+
+```
+ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:4243
+```
+
+Restart Dockerd
+
+```bash
+systemctl daemon-reload
+```
+
+Restart Docker Engine
+
+```bash
+sudo service docker restart
+```
+
+## Docker Storage Drivers
+
+### Overlay2
+
+- Supported on current Ubuntu and CentOS/RHEL versions
+- Data is stored in the form of a file system (Filesystem Storage)
+- Efficient use of memory
+- Inefficient with write-heavy workload
+
+### AuFS
+
+- Supported with Ubuntu 14.04 or earlier
+- Data is stored in the form of a file system (Filesystem Storage)
+- Efficient use of memory
+- Inefficient with write-heavy workload
+
+### Devicemapper
+
+Device Mapper is one of the Docker storage drivers available for some Linux distributions. it is the default storage driver for CentOS7 and earlier. We can customize Device Mapper configuration using the daemon config file. 
+
+- Supported on CentOS 7 and earlier
+- Data is stored in blocks (Block Storage)
+- Efficient with write-heavy workloads
+
+Device Mapper supports two modes:
+#### loop-lvm
+
+- Loopback machanism simulates an additional physical disk using files on the local disk.
+- Minimal setup, does not require an additional storage device.
+- Bad performance, suggested use only for testing.
+
+#### ct-lvm mode: 
+
+- Stores data on a separate device
+- Requires and additional storage device.
+- Good Performance, suggested to use for Production.
+
+### Storage models 
+
+Persistent data can be managed using several storage models. 
+#### Filesystem Storage
+
+- Data is stored in the form of a file system.
+- Efficient use of memory
+- Inefficient with write-heavy workloads
+
+#### Block storage
+
+- Stores data in blocks
+- Efficient with write-heavy workloads
+
+#### Object storage
+
+- Stores data in an external object-based stored
+- Application must be designed to use object-based storage.
+- Flexible & scalable
+
+### Customize Docker Daemon
+
+Create a file named `daemon.json` in `/etc/docker`
+
+#### Changing Docker Root Directory
+
+You could change the root directory of Docker to another location if you are running out of disk space.
+
+```json
+{
+  "data-root": "/new_dir_structure/docker"
+}
+```
+
+#### Changing default logging driver
+
+Add this in the `daemon.json` file
+
+```json
+## configure the logging driver / log size
+## Options awslogs, fluentd, gcplogs, gelf, journald, json-file, local, logentries, splunk, syslog 
+
+  {
+       "log-driver": "syslog"
+  }
+
+  OR
+
+  {
+       "log-driver": "json-file",
+       "log-opts": {
+        "max-size": "15m"
+       }
+  }
+```
+
+#### Change storage driver
+
+```json
+## configure Storage driver 
+
+  {
+  "storage-driver": "devicemapper"
+  }
+```
+
+```
+## configure a default registry 
+
+  {
+    "registry-mirrors": ["https://<my-docker-mirror-host>"]
+  }
+
+## secure the docker daemon with TLS / SSL 
+  sudo vi /etc/docker/daemon.json
+
+  {
+    "tlsverify": true,
+    "tlscacert": "/home/certs/ca.pem",
+    "tlscert": "/home/certs/server-cert.pem",
+    "tlskey": "/home/certs/server-key.pem"
+  }
+```
+
+## Docker Content Trust (DCT)
+
+By default, Docker allows users to download any images from Docker Hub. This can be a security vulnerability. To allow Docker to only pulled trusted and signed images, use the command:
+
+This is called the Docker Content Trust
+
+```bash
+export DOCKER_CONTENT_TRUST=1
+```
+
+## Docker Compose
+
+- Can only create multiple containers on a single VM/machine. This does not help in high-availability as the redundancy is limited to only a single point of failure.
+- They also create different port numbers for every container. This creates a problem for the load balancer.
+- It is stateless, meaning, if the containers created by `compose` go down, it cannot bring them back up. 
+
+### Service
+
+Multiple containers from the SAME image.
+
+```yaml
+volumes:
+  applogs: # $ docker volume create applogs
+networks:
+  mynet: # $ docker network create mynet --driver bridge
+    #subnet:
+    #gateway:
+services:
+  myapp: # Service 1 name, can be any string
+    image: nginx:latest
+    ports: # Array, since containers can have multiple services
+      - 80 # -P or -p 8080:80
+      - 443
+    volumes:
+      - applogs:/var/log/nginx # Docker managed volume (must be created first before using)
+      - /opt/nconf:/usr/share/nginx/html	# Bind mount
+    networks:
+      - mynet # Needs to be created before being used
+      - mynet1
+    depends_on: # Needs mydb containers to be functional first
+      - mydb
+  mydb: # Service 2
+    image: mongo
+    ports:
+      - 27017
+    networks:
+      - mynet
+```
+
+```bash
+# Brings up one container each
+docker compose --file compose.yaml up -d
+```
+
+```bash
+# Brings up the suggested number of containers
+docker compose --file compose.yaml up --scale myapp=5 --scale mydb=3 -d
+
+# You can again pass this command by reducing the numbers
+docker compose --file compose.yaml up --scale myapp=3 --scale mydb=1 -d
+
+# Bring down the entire setup
+docker compose --file compose.yaml down
+```
+
+## Docker Swarm
+
+Docker's built-in container orchestration tool.
+
+- Has a lower learning curve than Kubernetes
+- Manages dynamic nature of the containers
+- Provides the desired state configurations / auto-healing
+- Enables request routing into multiple containers for High Availability
+
+```bash
+# Initialise Swarm on master node. Whichever machine this command is run becomes the master node.
+docker swarm init
+```
+
+```bash
+# Run on worker nodes to join the swarm
+docker swarm join --token 
+```
+
+docker swarm join --token SWMTKN-1-45uvmlvdsvrjmx2myafuvfuxbzqg16u8y9cy4swrydcpcxlpz2-38n71x4ezuhe91lzhr5r75u98 172.31.14.111:2377
+
+```bash
+# Regenerate the swarm join token
+docker swarm join worker
+```
+
+### List Nodes
+
+```bash
+docker node ls
+```
+
+### Leave Swarm
+
+```bash
+docker swarm leave --force
+```
+
