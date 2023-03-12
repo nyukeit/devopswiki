@@ -461,13 +461,14 @@ The Docker service or more aptly, the Docker Engine, is called the Docker Daemon
 sudo vi /lib/systemd/system/docker.service
 ```
 
-Add this line in the Dockerfile
+Add this line in the config file
 
-```
+```ini
+# The port number can be anything of your choosing. You can allow specific IPs only instead of 0.0.0.0
 ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:4243
 ```
 
-Restart Dockerd
+Restart Daemon
 
 ```bash
 systemctl daemon-reload
@@ -554,57 +555,55 @@ You could change the root directory of Docker to another location if you are run
 
 Add this in the `daemon.json` file
 
+Options awslogs, fluentd, gcplogs, gelf, journald, json-file, local, logentries, splunk, syslog. These options can be found by doing `docker info`
+
 ```json
-## configure the logging driver / log size
-## Options awslogs, fluentd, gcplogs, gelf, journald, json-file, local, logentries, splunk, syslog 
+{
+    "log-driver": "syslog"
+}
+```
 
-  {
-       "log-driver": "syslog"
-  }
+Or, another way with options
 
-  OR
-
-  {
-       "log-driver": "json-file",
-       "log-opts": {
+```json
+{
+    "log-driver": "json-file",
+    "log-opts": {
         "max-size": "15m"
-       }
-  }
+    }
+}
 ```
 
 #### Change storage driver
 
 ```json
-## configure Storage driver 
-
-  {
-  "storage-driver": "devicemapper"
-  }
+{
+    "storage-driver": "devicemapper"
+}
 ```
 
+#### Change Default Registry
+
 ```
-## configure a default registry 
+{
+	"registry-mirrors": ["https://<my-docker-mirror-host>"]
+} 
+```
 
-  {
-    "registry-mirrors": ["https://<my-docker-mirror-host>"]
-  }
+#### Ssecure the docker daemon with TLS / SSL
 
-## secure the docker daemon with TLS / SSL 
-  sudo vi /etc/docker/daemon.json
-
-  {
+```JSON
+{
     "tlsverify": true,
     "tlscacert": "/home/certs/ca.pem",
     "tlscert": "/home/certs/server-cert.pem",
     "tlskey": "/home/certs/server-key.pem"
-  }
+}
 ```
 
 ## Docker Content Trust (DCT)
 
-By default, Docker allows users to download any images from Docker Hub. This can be a security vulnerability. To allow Docker to only pulled trusted and signed images, use the command:
-
-This is called the Docker Content Trust
+By default, Docker allows users to download any images from Docker Hub. This can be a security vulnerability. To allow Docker to only pull trusted and signed images, enable Docker Content Trust:
 
 ```bash
 export DOCKER_CONTENT_TRUST=1
@@ -700,4 +699,6 @@ docker node ls
 ```bash
 docker swarm leave --force
 ```
+
+## Resources
 
