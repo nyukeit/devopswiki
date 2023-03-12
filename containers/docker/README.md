@@ -28,7 +28,7 @@
 
 #### Docker Network (`docker network`)
 
-[`ls`](#Network List) | [`create`](#Create Network) | [`connect`](#Join Network) | 
+[`ls`](#List-Networks) | [`create`](#Create-Network) | [`inspect`](#inspect-network) | [`connect`](#Join-Network) | [`disconnect`](#disconnect-network)
 
 ## Basic Commands
 
@@ -349,7 +349,7 @@ docker pull localhost:5000/nyukeit/myapp:1
 
 ## Docker Network
 
-Understand about docker’s networking
+### List Networks
 
 ```docker
 docker network ls
@@ -361,7 +361,7 @@ NETWORK ID     NAME      DRIVER    SCOPE
 2440bbbbab37   none      null      local
 ```
 
-### Inspect docker network
+### Inspect Network
 
 ```docker
 docker network inspect <network name/id>
